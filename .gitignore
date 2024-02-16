@@ -5,6 +5,7 @@
 UserSettings/Layouts/*
 UserSettings/Layouts/default-2023.dwlt
 Library/ArtifactDB
+Library/ArtifactDB-lock
 
 # Ignorer les fichiers générés automatiquement
 /*.csproj
