@@ -1,21 +1,21 @@
 # Ignorer les fichiers de compilation et les dossiers de build
-/Library/
-/Temp/
-/Builds/
+Library/
+Temp/
+Builds/
 
 # Ignorer les fichiers générés automatiquement
-/*.csproj
-/*.unityproj
-/*.sln
-/*.userprefs
+*.csproj
+*.unityproj
+*.sln
+*.userprefs
 
 # Ignorer les fichiers de cache et de journalisation
-/*.pidb.meta
-/*.pidb
-/*.log
-/Logs/
+*.pidb.meta
+*.pidb
+*.log
+Logs/
 
 # Ignorer les fichiers temporaires spécifiques à certains éditeurs
-/[Ll]ibrary/[Ss]criptAssemblies/
-/[Tt]emp/
-/[Oo]bj/
+[Ll]ibrary/[Ss]criptAssemblies/
+[Tt]emp/
+[Oo]bj/
