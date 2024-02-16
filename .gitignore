@@ -4,6 +4,7 @@ Temp/
 Builds/
 UserSettings/*
 UserSettings/Layouts/*
+UserSettings/Layouts/default-2023.dwlt
 
 # Ignorer les fichiers générés automatiquement
 *.csproj
