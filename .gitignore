@@ -3,6 +3,7 @@ Library/
 Temp/
 Builds/
 UserSettings/*
+UserSettings/Layouts/*
 
 # Ignorer les fichiers générés automatiquement
 *.csproj
