@@ -2,6 +2,9 @@
 /Library/
 /Temp/
 /Builds/
+UserSettings/Layouts/*
+UserSettings/Layouts/default-2023.dwlt
+Library/ArtifactDB
 
 # Ignorer les fichiers générés automatiquement
 /*.csproj
