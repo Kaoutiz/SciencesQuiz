@@ -1,6 +1,6 @@
 # Ignorer les fichiers de compilation et les dossiers de build
 [Ll]ibrary/
-[Uu]ser[Ss]ettings/
+[Uu]ser[Ss]ettings/default-2023.dwlt
 /Temp/
 /Builds/
 UserSettings/Layouts/*
