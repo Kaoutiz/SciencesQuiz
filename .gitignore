@@ -1,5 +1,6 @@
 # Ignorer les fichiers de compilation et les dossiers de build
 [Ll]ibrary/
+[Uu]ser[Ss]ettings/
 /Temp/
 /Builds/
 UserSettings/Layouts/*
