@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\canac\\Documents\\SciencesQuiz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|c:\\users\\canac\\documents\\sciencesquiz\\assets\\scripts\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\canac\\Documents\\SciencesQuiz\\assets\\scripts\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|C:\\Users\\canac\\Documents\\SciencesQuiz\\assets\\scripts\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Login.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Login.cs",
+              "ToolTip": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Login.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Login.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAwwEgAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-21T11:45:46.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Register.cs",
               "DocumentMoniker": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Register.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Register.cs",
               "ToolTip": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Register.cs",
               "RelativeToolTip": "Assets\\Scripts\\Register.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADYAAAAbAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAIwBAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T11:47:07.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T11:47:07.93Z"
             }
           ]
         }
