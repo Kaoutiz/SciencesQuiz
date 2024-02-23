@@ -80,7 +80,7 @@ public class Login : MonoBehaviour
                 // Enregistrez l'ID de l'utilisateur dans les PlayerPrefs
                 PlayerPrefs.SetString("UserID", userId);
             
-               SceneManager.LoadScene("Main"); // Charger la sc�ne principale apr�s la connexion r�ussie
+               SceneManager.LoadScene("Home"); // Charger la sc�ne principale apr�s la connexion r�ussie
             }
         }
     }
