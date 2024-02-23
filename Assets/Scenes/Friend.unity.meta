@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Friend.unity.meta
 guid: 1f48958b97fcfa04e93a62e2f12f2484
+========
+guid: 863f91f0b1fd3324781d50767ec3158b
+>>>>>>>> main:Assets/Scenes/Login.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
