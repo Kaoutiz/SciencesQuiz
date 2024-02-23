@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: 863f91f0b1fd3324781d50767ec3158b
+  - enabled: 1
+    path: Assets/Scenes/Friend.unity
+    guid: 1f48958b97fcfa04e93a62e2f12f2484
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

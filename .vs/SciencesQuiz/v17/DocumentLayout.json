@@ -1,13 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\canac\\Documents\\SciencesQuiz\\",
+  "WorkspaceRootPath": "C:\\Users\\kaoutiz\\SciencesQuiz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\canac\\Documents\\SciencesQuiz\\assets\\scripts\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|c:\\users\\kaoutiz\\sciencesquiz\\assets\\scripts\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|C:\\Users\\canac\\Documents\\SciencesQuiz\\assets\\scripts\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|c:\\users\\kaoutiz\\sciencesquiz\\assets\\scripts\\friend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\friend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|C:\\Users\\kaoutiz\\SciencesQuiz\\assets\\scripts\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D76AD3FE-62A8-EADF-BE87-69A81DFD26F5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,28 +22,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Friend.cs",
+              "DocumentMoniker": "C:\\Users\\kaoutiz\\SciencesQuiz\\Assets\\Scripts\\Friend.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Friend.cs",
+              "ToolTip": "C:\\Users\\kaoutiz\\SciencesQuiz\\Assets\\Scripts\\Friend.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Friend.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowDEAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-22T22:39:40.357Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Login.cs",
+              "DocumentMoniker": "C:\\Users\\kaoutiz\\SciencesQuiz\\Assets\\Scripts\\Login.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Login.cs",
-              "ToolTip": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Login.cs",
+              "ToolTip": "C:\\Users\\kaoutiz\\SciencesQuiz\\Assets\\Scripts\\Login.cs",
               "RelativeToolTip": "Assets\\Scripts\\Login.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAwwEgAAAA/AAAA",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAwwFIAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-21T11:45:46.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Register.cs",
-              "DocumentMoniker": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Register.cs",
+              "DocumentMoniker": "C:\\Users\\kaoutiz\\SciencesQuiz\\Assets\\Scripts\\Register.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Register.cs",
-              "ToolTip": "C:\\Users\\canac\\Documents\\SciencesQuiz\\Assets\\Scripts\\Register.cs",
+              "ToolTip": "C:\\Users\\kaoutiz\\SciencesQuiz\\Assets\\Scripts\\Register.cs",
               "RelativeToolTip": "Assets\\Scripts\\Register.cs",
               "ViewState": "AQIAADUAAAAAAAAAAAAIwBAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

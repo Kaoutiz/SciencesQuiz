@@ -17,6 +17,7 @@ public class Login : MonoBehaviour
     {
         public string pseudo;
         public string password;
+        public string id;
     }
 
     public void SubmitLogin()
@@ -72,10 +73,28 @@ public class Login : MonoBehaviour
             {
                 string jsonData = request.downloadHandler.text;
                 Debug.Log("Données de l'API reçues: " + jsonData);
-                SceneManager.LoadScene("MainScene"); // Charger la scène principale après la connexion réussie
+
+                // Récupérer l'ID de l'utilisateur depuis les données JSON et le stocker
+                UserData userData = JsonUtility.FromJson<UserData>(jsonData);
+                string userId = ExtractUserIdFromJson(jsonData);
+                // Enregistrez l'ID de l'utilisateur dans les PlayerPrefs
+                PlayerPrefs.SetString("UserID", userId);
+            
+               SceneManager.LoadScene("Main"); // Charger la scène principale après la connexion réussie
             }
         }
     }
+
+    string ExtractUserIdFromJson(string jsonData)
+    {
+        // Utilisez une méthode de désérialisation JSON appropriée pour extraire l'ID de l'utilisateur
+        // Dans cet exemple, je vais utiliser simplement le découpage de la chaîne JSON
+        int startIndex = jsonData.IndexOf("_id") + 6; // Ajoutez 6 pour passer à l'ID réel
+        int endIndex = jsonData.IndexOf("\"", startIndex);
+        string userId = jsonData.Substring(startIndex, endIndex - startIndex);
+        return userId;
+    }
+
     void ChangeInputFieldColor(InputField inputField)
     {
         inputField.image.color = errorColor;
