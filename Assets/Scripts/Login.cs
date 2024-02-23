@@ -17,6 +17,7 @@ public class Login : MonoBehaviour
     {
         public string pseudo;
         public string password;
+        public string id;
     }
 
     public void SubmitLogin()
@@ -24,12 +25,12 @@ public class Login : MonoBehaviour
         string pseudo = pseudoInput.text;
         string password = passwordInput.text;
 
-        // Créez une instance de UserData et définissez le nom d'utilisateur
+        // Crï¿½ez une instance de UserData et dï¿½finissez le nom d'utilisateur
         UserData userData = new UserData();
         userData.pseudo = pseudo;
         userData.password = password;
 
-        // Convertissez l'objet UserData en une chaîne JSON à l'aide de JsonUtility
+        // Convertissez l'objet UserData en une chaï¿½ne JSON ï¿½ l'aide de JsonUtility
         string jsonStr = JsonUtility.ToJson(userData);
 
         StartCoroutine(SendRequest(jsonStr));
@@ -47,17 +48,17 @@ public class Login : MonoBehaviour
 
         if (request.result != UnityWebRequest.Result.Success)
         {
-            if (request.responseCode == 404) // Utilisateur non trouvé
+            if (request.responseCode == 404) // Utilisateur non trouvï¿½
             {
                 Debug.LogWarning("Identifiants incorrects !");
-                // Appliquer la couleur d'erreur aux champs d'entrée de texte
+                // Appliquer la couleur d'erreur aux champs d'entrï¿½e de texte
                 ChangeInputFieldColor(pseudoInput);
                 
             }
             else if (request.responseCode == 401) // Mot de passe incorrect
             {
                 Debug.LogWarning("Mot de passe incorrects !");
-                // Appliquer la couleur d'erreur aux champs d'entrée de texte
+                // Appliquer la couleur d'erreur aux champs d'entrï¿½e de texte
                 
                 ChangeInputFieldColor(passwordInput);
             }
@@ -68,14 +69,32 @@ public class Login : MonoBehaviour
         }
         else
         {
-            if (request.responseCode == 200) // Connexion réussie
+            if (request.responseCode == 200) // Connexion rï¿½ussie
             {
                 string jsonData = request.downloadHandler.text;
-                Debug.Log("Données de l'API reçues: " + jsonData);
-                SceneManager.LoadScene("MainScene"); // Charger la scène principale après la connexion réussie
+                Debug.Log("Donnï¿½es de l'API reï¿½ues: " + jsonData);
+
+                // Rï¿½cupï¿½rer l'ID de l'utilisateur depuis les donnï¿½es JSON et le stocker
+                UserData userData = JsonUtility.FromJson<UserData>(jsonData);
+                string userId = ExtractUserIdFromJson(jsonData);
+                // Enregistrez l'ID de l'utilisateur dans les PlayerPrefs
+                PlayerPrefs.SetString("UserID", userId);
+            
+               SceneManager.LoadScene("Main"); // Charger la scï¿½ne principale aprï¿½s la connexion rï¿½ussie
             }
         }
     }
+
+    string ExtractUserIdFromJson(string jsonData)
+    {
+        // Utilisez une mï¿½thode de dï¿½sï¿½rialisation JSON appropriï¿½e pour extraire l'ID de l'utilisateur
+        // Dans cet exemple, je vais utiliser simplement le dï¿½coupage de la chaï¿½ne JSON
+        int startIndex = jsonData.IndexOf("_id") + 6; // Ajoutez 6 pour passer ï¿½ l'ID rï¿½el
+        int endIndex = jsonData.IndexOf("\"", startIndex);
+        string userId = jsonData.Substring(startIndex, endIndex - startIndex);
+        return userId;
+    }
+
     void ChangeInputFieldColor(InputField inputField)
     {
         inputField.image.color = errorColor;
