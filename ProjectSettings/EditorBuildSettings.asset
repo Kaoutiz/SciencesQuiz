@@ -17,5 +17,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Friend.unity
     guid: 1f48958b97fcfa04e93a62e2f12f2484
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: d31b564dc92d8ee469750c589fb34bbe
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 6341395fa87657240b6fef3dc8ac36c7
+  - enabled: 1
+    path: Assets/Scenes/Ranking.unity
+    guid: 331ba0cc26b4ba949a644045f1fbafa8
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 547e8e0e8d6368f46aac660b8fcd79d9
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
