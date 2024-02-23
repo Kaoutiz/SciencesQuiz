@@ -6,7 +6,7 @@ public class Navbar : MonoBehaviour
     // Méthode pour rediriger vers la scène 1
     public void LoadScene1()
     {
-        SceneManager.LoadScene("Game"); 
+        SceneManager.LoadScene("Home"); 
     }
 
     // Méthode pour rediriger vers la scène 2
