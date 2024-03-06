@@ -62,9 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Login.cs" />
+    <Compile Include="Assets\Scripts\CategoryLoad.cs" />
     <Compile Include="Assets\Scripts\Register.cs" />
     <Compile Include="Assets\Scripts\Friend.cs" />
     <Compile Include="Assets\Scripts\Navbar.cs" />
+    <Compile Include="Assets\Scripts\QuestionLoader.cs" />
+    <Compile Include="Assets\Scripts\LoadScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
