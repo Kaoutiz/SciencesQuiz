@@ -8,6 +8,7 @@ using static CategoryLoad;
 public class CategoryLoad : MonoBehaviour
 {
     public string apiUrl = "https://votre-api.com/categories";
+    public QuestionLoader questionLoader; // Référence au script QuestionLoader
     public GameObject buttonPrefab; // Prefab de bouton à instancier
     public Transform buttonContainer; // Parent des boutons dans la hiérarchie
 
@@ -17,7 +18,7 @@ public class CategoryLoad : MonoBehaviour
         public string message;
         public List<CategoryData> categories_list;
     }
-
+    
     [System.Serializable]
     public class CategoryData
     {
@@ -97,6 +98,7 @@ public class CategoryLoad : MonoBehaviour
     {
         Debug.Log("Catégorie sélectionnée : " + categoryName);
         // Ajoutez ici le code que vous souhaitez exécuter lorsque vous cliquez sur un bouton de catégorie
+        questionLoader.LoadQuestions(categoryName);
     }
 
 }

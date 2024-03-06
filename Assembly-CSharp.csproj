@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Register.cs" />
     <Compile Include="Assets\Scripts\Friend.cs" />
     <Compile Include="Assets\Scripts\Navbar.cs" />
+    <Compile Include="Assets\Scripts\QuestionLoader.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />
   </ItemGroup>
   <ItemGroup>
