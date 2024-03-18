@@ -3,11 +3,10 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
-using static CategoryLoad;
 
 public class CategoryLoad : MonoBehaviour
 {
-    public string apiUrl = "https://votre-api.com/categories";
+    public string apiUrl = APIConfig.apiURL + "categories";
     public QuestionLoader questionLoader; // Référence au script QuestionLoader
     public GameObject buttonPrefab; // Prefab de bouton à instancier
     public Transform buttonContainer; // Parent des boutons dans la hiérarchie

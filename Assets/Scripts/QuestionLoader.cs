@@ -1,21 +1,31 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class QuestionLoader : MonoBehaviour
 {
-    public string apiUrl = "https://votre-api.com/Questions";
+    public string apiUrl = APIConfig.apiURL + "Questions";
+    public Button loadButton;
 
-    // Méthode pour charger les questions depuis l'API en fonction de la catégorie spécifiée
+    void Start()
+    {
+        loadButton.onClick.AddListener(OnClickLoadQuestions);
+    }
+
+    void OnClickLoadQuestions()
+    {
+        LoadQuestions();
+    }
+
     public void LoadQuestions(string categorie = "")
     {
-        Debug.Log("reussi");
         string urlWithParams = apiUrl;
         if (!string.IsNullOrEmpty(categorie))
         {
             urlWithParams += "?categorie=" + categorie;
         }
-        Debug.Log(urlWithParams);
         StartCoroutine(GetQuestions(urlWithParams));
     }
 
@@ -26,21 +36,24 @@ public class QuestionLoader : MonoBehaviour
 
         if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log("reussi if");
             Debug.LogError("Erreur lors de la récupération des questions : " + request.error);
         }
         else
         {
-            Debug.Log("reussi else");
             string jsonResponse = request.downloadHandler.text;
-            Debug.Log("Réponse JSON des questions : " + jsonResponse);
+            // Traitement de la réponse JSON
+            Debug.Log("JSON avant désérialisation : " + jsonResponse);
 
-            
+            // Enregistrer les questions dans PlayerPrefs
+            SaveQuestions(jsonResponse);
         }
     }
-    // Méthode appelée lors du clic sur le bouton
-    public void OnClick()
+
+    void SaveQuestions(string jsonResponse)
     {
-        LoadQuestions();
+        PlayerPrefs.SetString("Questions", jsonResponse);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene("Question");
     }
 }
