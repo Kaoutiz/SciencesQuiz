@@ -1521,7 +1521,6 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/Home.unity
   m_GameObject: {fileID: 693379854}
   m_CullTransparentMesh: 1
 --- !u!1 &695013679
@@ -2878,9 +2877,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103308948}
-=======
-  m_GameObject: {fileID: 2114706150}
->>>>>>> 3bb3eb4bcf24fa44f3c818830414b456ee2f2bc7:Assets/Scenes/FriendRequest.unity
   m_CullTransparentMesh: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
