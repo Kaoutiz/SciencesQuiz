@@ -9,7 +9,7 @@ public class Login : MonoBehaviour
 {
     public InputField pseudoInput;
     public InputField passwordInput;
-    public string apiURL = "http://localhost:3000/api/Login";
+    public string apiURL = APIConfig.apiURL + "Login";
     public Color errorColor = Color.red;
 
     [System.Serializable]
