@@ -67,7 +67,9 @@
     <Compile Include="Assets\Scripts\CategoryLoad.cs" />
     <Compile Include="Assets\Scripts\Register.cs" />
     <Compile Include="Assets\Scripts\Friend.cs" />
+    <Compile Include="Assets\Scripts\FriendList.cs" />
     <Compile Include="Assets\Scripts\QuestionSceneHandler.cs" />
+    <Compile Include="Assets\Scripts\ClassementList.cs" />
     <Compile Include="Assets\Scripts\Navbar.cs" />
     <Compile Include="Assets\Scripts\QuestionLoader.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />
