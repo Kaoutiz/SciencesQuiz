@@ -14,9 +14,13 @@ public class QuestionSceneHandler : MonoBehaviour
     public Button homeButton;
     public Transform buttonPanel;
     public GameObject answerButtonPrefab; // Prefab du bouton de réponse
+    public Sprite[] backgroundImages; // Tableau d'images de fond aléatoires pour les reponses
+    public Sprite[] backgroundImagesQuestion; // Tableau d'images de fond aléatoires pour les questions
 
     public float countdownTime = 60f;
     public string apiURL = APIConfig.apiURL + "chemin";
+
+    public Image questionPanelBackground;
 
     private List<QuestionData> questions;
     private int currentQuestionIndex = 0;
@@ -59,6 +63,10 @@ public class QuestionSceneHandler : MonoBehaviour
         // Mettre à jour le compteur de questions
         questionCounterText.text = "Question " + (currentQuestionIndex + 1) + " / " + questions.Count;
 
+        // Choisir aléatoirement une image de fond pour le panneau de la question
+        Sprite randomBackground = backgroundImagesQuestion[Random.Range(0, backgroundImagesQuestion.Length)];
+        questionPanelBackground.sprite = randomBackground;
+
         // Afficher les réponses
         DisplayAnswers(currentQuestion);
 
@@ -89,6 +97,18 @@ public class QuestionSceneHandler : MonoBehaviour
         GameObject answerButtonGO = Instantiate(answerButtonPrefab, buttonPanel);
         Button answerButton = answerButtonGO.GetComponent<Button>();
         answerButton.GetComponentInChildren<Text>().text = answerText;
+        // Choix aléatoire de l'image de fond
+        Sprite randomBackground = backgroundImages[Random.Range(0, backgroundImages.Length)];
+        Image buttonImage = answerButton.GetComponent<Image>();
+        if (buttonImage != null)
+        {
+            buttonImage.sprite = randomBackground;
+        }
+        else
+        {
+            Debug.LogError("Le composant Image n'est pas trouvé dans le préfabriqué du bouton de réponse.");
+        }
+
         answerButton.onClick.AddListener(() => OnAnswerSelected(answerText));
     }
 
