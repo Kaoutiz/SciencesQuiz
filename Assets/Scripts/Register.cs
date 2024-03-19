@@ -9,7 +9,7 @@ public class Register : MonoBehaviour
 {
     public InputField pseudoInput;
     public InputField passwordInput;
-    public string apiURL = "http://localhost:3000/api/Register";
+    public string apiURL = APIConfig.apiURL + "Register";
     public Color errorColor = Color.red;
 
     [System.Serializable]
