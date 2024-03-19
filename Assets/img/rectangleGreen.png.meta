@@ -130,8 +130,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
     nameFileIdTable:
       rectangleGreen_0: -1240175138261090371
+=======
+    nameFileIdTable: {}
+>>>>>>> 8eafd5f7e59b48687639e9c300f7038a99bed5c7
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
