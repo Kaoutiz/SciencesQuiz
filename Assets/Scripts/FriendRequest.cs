@@ -39,8 +39,6 @@ public class FriendRequest : MonoBehaviour
                 // Récupérer la réponse JSON
                 string responseBody = request.downloadHandler.text;
 
-                Debug.Log(responseBody);
-
                 // Désérialiser la réponse JSON en utilisant une classe représentant le tableau JSON
                 FriendRequestData[] friendRequests = JsonHelper.FromJson<FriendRequestData>(responseBody);
 
@@ -69,11 +67,12 @@ public class FriendRequest : MonoBehaviour
                         friendRequestText.text = $"{friendPseudo}";
 
                         // Ajouter des boutons pour accepter et refuser la demande
-                        Button acceptButton = friendRequestObject.transform.Find("AcceptButton").GetComponent<Button>();
+                        Button acceptButton = friendRequestObject.transform.Find("Background/ZoneBouton/AcceptButton").GetComponent<Button>();
                         acceptButton.onClick.AddListener(() => AcceptFriendRequest(friendId));
 
-                        Button rejectButton = friendRequestObject.transform.Find("RejectButton").GetComponent<Button>();
+                        Button rejectButton = friendRequestObject.transform.Find("Background/ZoneBouton/RejectButton").GetComponent<Button>();
                         rejectButton.onClick.AddListener(() => RejectFriendRequest(friendId));
+
                     }));
                 }
 
