@@ -63,7 +63,7 @@ public class QuestionSceneHandler : MonoBehaviour
         questionText.text = "";
         chronoText.text = "";
         categoryText.text = "";
-
+        
         // Afficher la question actuelle
         QuestionData currentQuestion = questions[currentQuestionIndex];
         questionText.text = currentQuestion.question;
@@ -72,7 +72,7 @@ public class QuestionSceneHandler : MonoBehaviour
         categoryText.text = currentQuestion.categorie;
 
         // Mettre à jour le compteur de questions
-        questionCounterText.text = "Question " + (currentQuestionIndex + 1) + " / " + questions.Count;
+        questionCounterText.text = (currentQuestionIndex + 1) + " / " + questions.Count;
 
         // Choisir aléatoirement une image de fond pour le panneau de la question
         Sprite randomBackground = backgroundImagesQuestion[Random.Range(0, backgroundImagesQuestion.Length)];
@@ -327,7 +327,6 @@ public class QuestionSceneHandler : MonoBehaviour
     {
         // Déterminer le facteur de réduction du gain d'expérience en fonction de l'expérience actuelle de l'utilisateur
         float experienceReductionFactor = Mathf.Clamp01(Mathf.Exp(-userExperience / 100000.0f));
-        // Ici, nous réduisons le gain d'expérience de 10% pour chaque 1000 points d'expérience
         return Mathf.RoundToInt(baseExperienceGain * experienceReductionFactor);
     }
 
@@ -369,6 +368,8 @@ public class QuestionSceneHandler : MonoBehaviour
             chronoText.gameObject.SetActive(false);
             questionCounterText.gameObject.SetActive(false);
             buttonPanel.gameObject.SetActive(false);
+            buttonPanel.gameObject.SetActive(false);
+            categoryText.gameObject.SetActive(false);
             homeButton.gameObject.SetActive(true);
         }
     }
