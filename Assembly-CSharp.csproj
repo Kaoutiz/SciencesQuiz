@@ -67,13 +67,10 @@
     <Compile Include="Assets\Scripts\CategoryLoad.cs" />
     <Compile Include="Assets\Scripts\Register.cs" />
     <Compile Include="Assets\Scripts\Friend.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Scripts\FriendList.cs" />
     <Compile Include="Assets\Scripts\QuestionSceneHandler.cs" />
+    <Compile Include="Assets\Scripts\Deco.cs" />
     <Compile Include="Assets\Scripts\ClassementList.cs" />
-=======
-    <Compile Include="Assets\Scripts\QuestionSceneHandler.cs" />
->>>>>>> 8eafd5f7e59b48687639e9c300f7038a99bed5c7
     <Compile Include="Assets\Scripts\Navbar.cs" />
     <Compile Include="Assets\Scripts\QuestionLoader.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />

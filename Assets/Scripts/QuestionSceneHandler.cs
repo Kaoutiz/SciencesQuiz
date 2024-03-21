@@ -10,6 +10,7 @@ public class QuestionSceneHandler : MonoBehaviour
     public Text questionText;
     public Text chronoText;
     public Text questionCounterText;
+    public Text categoryText; // Ajout du composant Text pour afficher la catégorie
     public Button nextButton;
     public Button homeButton;
     public Transform buttonPanel;
@@ -30,8 +31,14 @@ public class QuestionSceneHandler : MonoBehaviour
 
     private Coroutine countdownCoroutine;
 
+    string userId;
+    int experienceUser;
+    private int baseExperienceGain = 100;
+
     void Start()
     {
+        userId = PlayerPrefs.GetString("UserID");
+        StartCoroutine(GetUserExperience(userId));
         LoadQuestions();
     }
 
@@ -55,13 +62,17 @@ public class QuestionSceneHandler : MonoBehaviour
         // Réinitialiser le texte de la question
         questionText.text = "";
         chronoText.text = "";
-
+        categoryText.text = "";
+        
         // Afficher la question actuelle
         QuestionData currentQuestion = questions[currentQuestionIndex];
-        questionText.text = "" + currentQuestion.question;
+        questionText.text = currentQuestion.question;
+
+        // Afficher la catégorie de la question
+        categoryText.text = currentQuestion.categorie;
 
         // Mettre à jour le compteur de questions
-        questionCounterText.text = "Question " + (currentQuestionIndex + 1) + " / " + questions.Count;
+        questionCounterText.text = (currentQuestionIndex + 1) + " / " + questions.Count;
 
         // Choisir aléatoirement une image de fond pour le panneau de la question
         Sprite randomBackground = backgroundImagesQuestion[Random.Range(0, backgroundImagesQuestion.Length)];
@@ -85,18 +96,36 @@ public class QuestionSceneHandler : MonoBehaviour
         }
 
         // Afficher les réponses dynamiquement
-        DisplayAnswer(question.reponse1.texte);
-        DisplayAnswer(question.reponse2.texte);
-        DisplayAnswer(question.reponse3.texte);
-        DisplayAnswer(question.reponse4.texte);
+        DisplayAnswer(question.reponse1);
+        DisplayAnswer(question.reponse2);
+        DisplayAnswer(question.reponse3);
+        DisplayAnswer(question.reponse4);
     }
 
-    void DisplayAnswer(string answerText)
+    void DisplayAnswer(ReponseData answerData)
     {
+        // Extraire le texte et le choix de la réponse
+        string answerText = answerData.texte;
+        int answerChoice = answerData.choix;
+
         // Instancier un nouveau bouton de réponse dans le panneau des réponses
         GameObject answerButtonGO = Instantiate(answerButtonPrefab, buttonPanel);
         Button answerButton = answerButtonGO.GetComponent<Button>();
-        answerButton.GetComponentInChildren<Text>().text = answerText;
+        // Trouver les composants Text par leur nom dans le bouton
+        Text answerTextComponent = answerButton.transform.Find("Text").GetComponent<Text>();
+        Text answerChoiceComponent = answerButton.transform.Find("TextChoice").GetComponent<Text>();
+
+        // Assigner le texte et le choix aux composants Text
+        if (answerTextComponent != null && answerChoiceComponent != null)
+        {
+            answerTextComponent.text = answerText; // Assigner le texte de la réponse
+            answerChoiceComponent.text = answerChoice.ToString(); // Assigner le choix de la réponse
+        }
+        else
+        {
+            Debug.LogError("Le composant Text ou TextChoice n'est pas trouvé dans le préfabriqué du bouton de réponse.");
+        }
+
         // Choix aléatoire de l'image de fond
         Sprite randomBackground = backgroundImages[Random.Range(0, backgroundImages.Length)];
         Image buttonImage = answerButton.GetComponent<Image>();
@@ -154,13 +183,25 @@ public class QuestionSceneHandler : MonoBehaviour
             if (answerButton.GetComponentInChildren<Text>().text.Equals(correctAnswer))
             {
                 answerButton.image.color = Color.green; // Afficher en vert la bonne réponse
+
+                // Réactiver le composant TextChoice
+                Text textChoiceComponent = answerButton.transform.Find("TextChoice").GetComponent<Text>();
+                textChoiceComponent.gameObject.SetActive(true);
             }
             else
             {
                 answerButton.image.color = Color.red; // Afficher en rouge la mauvaise réponse
+
+                // Réactiver le composant TextChoice
+                Text textChoiceComponent = answerButton.transform.Find("TextChoice").GetComponent<Text>();
+                textChoiceComponent.gameObject.SetActive(true);
             }
         }
-
+        // Désactiver les autres boutons
+        for (int i = 0; i < buttonPanel.childCount; i++)
+        {
+            buttonPanel.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         // Afficher le bouton pour passer à la question suivante
         nextButton.gameObject.SetActive(true);
     }
@@ -175,8 +216,12 @@ public class QuestionSceneHandler : MonoBehaviour
         if (isCorrect)
         {
             correctAnswersCount++;
-            string userId = PlayerPrefs.GetString("UserID");
-            StartCoroutine(UpdateUserExperience(userId, 100));
+
+            // Calculer le montant d'expérience gagné en fonction de l'expérience actuelle de l'utilisateur
+            int experienceGain = CalculateExperienceGain(experienceUser);
+            Debug.Log(experienceGain);
+            experienceUser += experienceGain;
+
         }
         StartCoroutine(IncrementerChoixReponse(currentQuestionIndex, answerIndex + 1));
         // Mettre en vert ou rouge la réponse sélectionnée
@@ -184,12 +229,7 @@ public class QuestionSceneHandler : MonoBehaviour
         buttonPanel.GetChild(answerIndex).GetComponent<Image>().color = answerColor;
 
         DisplayCorrectAnswer();
-        // Désactiver les autres boutons
-        for (int i = 0; i < buttonPanel.childCount; i++)
-        {
-            buttonPanel.GetChild(i).GetComponent<Button>().interactable = false;
-        }
-
+       
         nextButton.gameObject.SetActive(true);
     }
 
@@ -226,6 +266,31 @@ public class QuestionSceneHandler : MonoBehaviour
         }
     }
 
+    IEnumerator GetUserExperience(string userId)
+    {
+        string url = APIConfig.apiURL + userId; // Mettez à jour l'URL pour récupérer l'utilisateur par ID
+
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Échec de la requête : " + request.error);
+        }
+        else
+        {
+            // Analyser la réponse JSON pour obtenir l'expérience de l'utilisateur
+            string jsonResponse = request.downloadHandler.text;
+            UserResponse userResponse = JsonUtility.FromJson<UserResponse>(jsonResponse);
+            experienceUser = userResponse.utilisateur.experience;
+
+            // Utiliser l'expérience récupérée, par exemple, la stocker dans une variable pour la partie
+            // Ici, vous pouvez également ajuster le comportement en fonction de l'expérience de l'utilisateur
+            Debug.Log("Expérience de l'utilisateur récupérée avec succès : " + experienceUser);
+
+        }
+    }
+
     IEnumerator UpdateUserExperience(string userId, int experience)
     {
         // Construire l'URL pour l'API avec les paramètres nécessaires
@@ -255,6 +320,14 @@ public class QuestionSceneHandler : MonoBehaviour
         {
             Debug.Log("Expérience de l'utilisateur mise à jour avec succès");
         }
+    }
+
+    // Méthode pour calculer le montant d'expérience gagné en fonction de l'expérience actuelle de l'utilisateur
+    private int CalculateExperienceGain(int userExperience)
+    {
+        // Déterminer le facteur de réduction du gain d'expérience en fonction de l'expérience actuelle de l'utilisateur
+        float experienceReductionFactor = Mathf.Clamp01(Mathf.Exp(-userExperience / 100000.0f));
+        return Mathf.RoundToInt(baseExperienceGain * experienceReductionFactor);
     }
 
     int GetAnswerIndex(string answerText)
@@ -288,9 +361,15 @@ public class QuestionSceneHandler : MonoBehaviour
             Debug.Log("Fin des questions.");
             completionMessage = "Bien joué, vous avez " + correctAnswersCount + " bonnes réponses";
             questionText.text = completionMessage;
+            Debug.Log(experienceUser);
+            Debug.Log(userId);
+            StartCoroutine(UpdateUserExperience(userId, experienceUser));
+
             chronoText.gameObject.SetActive(false);
             questionCounterText.gameObject.SetActive(false);
             buttonPanel.gameObject.SetActive(false);
+            buttonPanel.gameObject.SetActive(false);
+            categoryText.gameObject.SetActive(false);
             homeButton.gameObject.SetActive(true);
         }
     }
@@ -320,4 +399,20 @@ public class ReponseData
 {
     public string texte;
     public int choix;
+}
+
+[System.Serializable]
+public class UserResponse
+{
+    public User utilisateur;
+}
+
+[System.Serializable]
+public class User
+{
+    public string _id;
+    public string pseudo;
+    public string password;
+    public int experience;
+    public int __v;
 }

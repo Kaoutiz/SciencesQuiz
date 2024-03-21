@@ -26,7 +26,7 @@ public class FriendManager : MonoBehaviour
         string userId = PlayerPrefs.GetString("UserID");
 
         // Former l'URL avec le pseudo de l'ami
-        string url = apiURL + "/" + friendPseudo;
+        string url = apiURL + "/Search/" + friendPseudo;
 
         // Créer une nouvelle requête GET
         using (UnityWebRequest request = UnityWebRequest.Get(url))

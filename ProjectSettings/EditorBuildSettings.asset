@@ -35,6 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 547e8e0e8d6368f46aac660b8fcd79d9
+  - enabled: 1
+    path: Assets/Scenes/Classement.unity
+    guid: b32dee7ac63ca474f8d782aee9477e56
+  - enabled: 1
+    path: Assets/Scenes/FriendList.unity
+    guid: 0b980a0dfdb224348ba48e12d3d1f1d7
+  - enabled: 1
+    path: Assets/Scenes/FriendRequest.unity
+    guid: 5c8a31b7f99d1c44aad9689809573979
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: d58915c4c80ce6b448b9832bbb65901d, type: 2}
   m_UseUCBPForAssetBundles: 0

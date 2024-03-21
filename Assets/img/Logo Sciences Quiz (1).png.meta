@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fb14afb2e083b5045801652a53197cd4
+guid: 0ef7365b0f49eea4aab5eab842e2017b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2063033932376759697
-    second: rectangle2Purple_0
+      213: 7117479952309321043
+    second: Logo Sciences Quiz (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rectangle2Purple_0
+      name: Logo Sciences Quiz (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 259
-        height: 149
+        x: 57
+        y: 12
+        width: 386
+        height: 477
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19dd4ea5e6e51ac10800000000000000
-      internalID: 2063033932376759697
+      spriteID: 35d7c5d7e4e56c260800000000000000
+      internalID: 7117479952309321043
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      rectangle2Purple_0: 2063033932376759697
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
