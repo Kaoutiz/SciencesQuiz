@@ -66,7 +66,7 @@ public class CategoryLoad : MonoBehaviour
 
         GameObject newButton = Instantiate(buttonPrefab, buttonContainer.transform); // Assurez-vous que le conteneur de boutons est le parent du nouveau bouton
 
-        // Assurez-vous que le texte est correctement défini sur le bouton
+        // Définir le texte avec le nom de la catégorie
         Text buttonText = newButton.GetComponentInChildren<Text>();
         if (buttonText != null)
         {

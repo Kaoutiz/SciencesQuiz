@@ -9,6 +9,7 @@ public class QuestionSceneHandler : MonoBehaviour
 {
     public Text questionText;
     public Text chronoText;
+    public Text xpText;
     public Text questionCounterText;
     public Text categoryText; // Ajout du composant Text pour afficher la catégorie
     public Button nextButton;
@@ -34,6 +35,7 @@ public class QuestionSceneHandler : MonoBehaviour
     string userId;
     int experienceUser;
     private int baseExperienceGain = 100;
+    private int experienceUserPartie = 0;
 
     void Start()
     {
@@ -221,6 +223,7 @@ public class QuestionSceneHandler : MonoBehaviour
             int experienceGain = CalculateExperienceGain(experienceUser);
             Debug.Log(experienceGain);
             experienceUser += experienceGain;
+            experienceUserPartie += experienceGain;
 
         }
         StartCoroutine(IncrementerChoixReponse(currentQuestionIndex, answerIndex + 1));
@@ -239,8 +242,8 @@ public class QuestionSceneHandler : MonoBehaviour
         string url = APIConfig.apiURL + "Questions/" + questions[questionIndex]._id + "/" + reponseIndex;
         Debug.Log(url);
 
-        // Créez les données du formulaire ici, puis encodez-les sous forme d'octets []
-        string formData = ""; // Vous devez remplir formData avec les données nécessaires
+        
+        string formData = ""; 
         byte[] formDataBytes = System.Text.Encoding.UTF8.GetBytes(formData);
 
         // Créez une requête UnityWebRequest avec les données du formulaire
@@ -364,13 +367,15 @@ public class QuestionSceneHandler : MonoBehaviour
             Debug.Log(experienceUser);
             Debug.Log(userId);
             StartCoroutine(UpdateUserExperience(userId, experienceUser));
-
+            xpText.text = "+" + experienceUserPartie.ToString() + "xp";
             chronoText.gameObject.SetActive(false);
+            
             questionCounterText.gameObject.SetActive(false);
             buttonPanel.gameObject.SetActive(false);
             buttonPanel.gameObject.SetActive(false);
             categoryText.gameObject.SetActive(false);
             homeButton.gameObject.SetActive(true);
+            xpText.gameObject.SetActive(true);
         }
     }
 }

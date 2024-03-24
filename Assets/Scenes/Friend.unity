@@ -932,7 +932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ScienceQuiz
+  m_text: 'SciencesQuiz
 
 '
   m_isRightToLeft: 0
